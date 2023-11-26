@@ -4,7 +4,6 @@ import { GetPapersInfo, GetSubjects } from "@/utils/api"
 import PaperItem from "@/components/PaperItem"
 import { PaperInfo } from "@/utils/interface"
 
-
 const App = () => {
 
     const [subjects, setSubjects] = useState<string[]>([])
