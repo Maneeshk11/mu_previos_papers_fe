@@ -47,7 +47,7 @@ const App = () => {
         <div className="w-screen">
             <Navbar />
             <div className="p-8 flex flex-col gap-y-8">
-                <div className="flex flex-row gap-x-2 items-center">
+                {/* <div className="flex flex-row gap-x-2 items-center">
                     <label htmlFor="" className="w-20">Semester</label>
                     <select name="semester" id="semester" className="p-2 rounded-md">
                         <option value="1">I</option>
@@ -59,7 +59,7 @@ const App = () => {
                         <option value="7">VII</option>
                         <option value="8">VIII</option>
                     </select>
-                </div>
+                </div> */}
                 <div className="flex flex-row gap-x-8 items-center">
                     <>
                         <label htmlFor="" className="w-14">Subject</label>
