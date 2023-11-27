@@ -46,7 +46,7 @@ const App = () => {
     return (
         <div className="w-screen">
             <Navbar />
-            <div className="p-8 flex flex-col gap-y-8">
+            <div className="p-8 flex flex-col gap-y-8 mobile:p-5">
                 {/* <div className="flex flex-row gap-x-2 items-center">
                     <label htmlFor="" className="w-20">Semester</label>
                     <select name="semester" id="semester" className="p-2 rounded-md">
@@ -60,32 +60,38 @@ const App = () => {
                         <option value="8">VIII</option>
                     </select>
                 </div> */}
-                <div className="flex flex-row gap-x-8 items-center">
-                    <>
-                        <label htmlFor="" className="w-14">Subject</label>
-                        <select name="subject" id="subject" className="p-2 rounded-md w-60"
-                            onChange={handleSubjectChange} value={selectedSubject}>
-                            <option value="selectAny">Select Any</option>
+                <div className="flex flex-row gap-x-8 items-center tablet:flex-col tablet:gap-y-2 tablet:items-start">
+                    <div className="flex flex-row items-center ">
+                        <span className="w-32 mobile:w-24 mobile:text-sm">Subject</span>
+                        <select name="subject" id="subject" className="p-2 rounded-md w-60 mobile:w-52 disabled:bg-gray-300 mobile:text-sm"
+                            onChange={handleSubjectChange} value={selectedSubject} disabled={selectedSubjectCode !== ""}>
                             {
+                                selectedSubjectCode === "" && <option value="selectAny">Select Any</option>
+                            }
+                            {
+                                selectedSubjectCode === "" &&
                                 subjects.map((subject: string, index) => {
                                     return <option value={subject} key={index}>{subject}</option>
                                 })
                             }
                         </select>
-                    </>
+                    </div>
                     <span className="text-gray-500">-- Or --</span>
-                    <>
-                        <label htmlFor="" className="w-24">Subject Code</label>
-                        <select name="subject_code" id="subject_code" className="p-2 rounded-md w-60"
-                            onChange={handleSubjectCodeChange} value={selectedSubjectCode}>
-                            <option value="selectAny">Select Any</option>
+                    <div className="flex flex-row items-center ">
+                        <span className="w-32 mobile:w-24 mobile:text-sm">Subject Code</span>
+                        <select name="subject_code" id="subject_code" className="p-2 rounded-md w-60 mobile:w-52 disabled:bg-gray-300 mobile:text-sm"
+                            onChange={handleSubjectCodeChange} value={selectedSubjectCode} disabled={selectedSubject !== ""}>
                             {
+                                selectedSubject === "" && <option value="selectAny">Select Any</option>
+                            }
+                            {
+                                selectedSubject === "" &&
                                 subjectCodes.map((subject: string, index) => {
                                     return <option value={subject} key={index}>{subject}</option>
                                 })
                             }
                         </select>
-                    </>
+                    </div>
                 </div>
                 <div className="flex flex-row items-center gap-x-4">
                     <button className="w-20 bg-gray-200 px-3 py-2 rounded-xl hover:bg-gray-300"
@@ -96,7 +102,7 @@ const App = () => {
 
                 {
                     papersList && papersList.length > 0 && (
-                        <div className="w-full flex flex-row gap-x-6 flex-wrap">
+                        <div className="w-full flex flex-row space-around flex-wrap">
                             {
                                 papersList.map((paper: PaperInfo, index: number) => {
                                     return <PaperItem paper={paper} key={index} />

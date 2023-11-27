@@ -41,8 +41,8 @@ const PaperItem: FC<PaperItemProps> = ({ paper }) => {
         )
     }
     return (
-        <div className="border border-black p-4 rounded-2xl w-fit">
-            <div>
+        <div className="border border-black p-4 rounded-2xl w-[35rem] mobile:w-full">
+            <div className="text-sm">
                 <PaperAttribute heading="Subject" value={paper.Subject_name} />
                 <PaperAttribute heading="Subject Code" value={paper.Subject_code} />
                 <PaperAttribute heading="Semester" value={paper.Semester} />
