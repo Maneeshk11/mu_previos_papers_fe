@@ -46,20 +46,7 @@ const App = () => {
     return (
         <div className="w-screen">
             <Navbar />
-            <div className="p-8 flex flex-col gap-y-8 mobile:p-5">
-                {/* <div className="flex flex-row gap-x-2 items-center">
-                    <label htmlFor="" className="w-20">Semester</label>
-                    <select name="semester" id="semester" className="p-2 rounded-md">
-                        <option value="1">I</option>
-                        <option value="2">II</option>
-                        <option value="3">III</option>
-                        <option value="4">IV</option>
-                        <option value="5">V</option>
-                        <option value="6">VI</option>
-                        <option value="7">VII</option>
-                        <option value="8">VIII</option>
-                    </select>
-                </div> */}
+            <div className="w-full p-8 flex flex-col gap-y-8 mobile:p-5">
                 <div className="flex flex-row gap-x-8 items-center tablet:flex-col tablet:gap-y-2 tablet:items-start">
                     <div className="flex flex-row items-center ">
                         <span className="w-32 mobile:w-24 mobile:text-sm">Subject</span>
@@ -102,7 +89,7 @@ const App = () => {
 
                 {
                     papersList && papersList.length > 0 && (
-                        <div className="w-full flex flex-row space-around flex-wrap">
+                        <div className="w-full flex flex-row flex-wrap gap-6">
                             {
                                 papersList.map((paper: PaperInfo, index: number) => {
                                     return <PaperItem paper={paper} key={index} />
